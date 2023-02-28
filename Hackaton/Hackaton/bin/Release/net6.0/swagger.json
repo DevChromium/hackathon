@@ -20,9 +20,50 @@
           "200": {
             "description": "Success",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StudentItem"
+              }
             }
           }
+        }
+      },
+      "post": {
+        "tags": [
+          "VivesHackathon"
+        ],
+        "operationId": "addStudent",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StudentItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "StudentItem": {
+      "type": "object",
+      "properties": {
+        "naam": {
+          "type": "string"
+        },
+        "klas": {
+          "type": "string"
         }
       }
     }

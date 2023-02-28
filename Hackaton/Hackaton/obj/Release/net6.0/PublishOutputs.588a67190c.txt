@@ -17,6 +17,7 @@ C:\Users\gille\Documents\Project\Hackaton\Hackaton\obj\Release\net6.0\PubTmp\Out
 C:\Users\gille\Documents\Project\Hackaton\Hackaton\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Options.dll
 C:\Users\gille\Documents\Project\Hackaton\Hackaton\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Primitives.dll
 C:\Users\gille\Documents\Project\Hackaton\Hackaton\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\gille\Documents\Project\Hackaton\Hackaton\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Users\gille\Documents\Project\Hackaton\Hackaton\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\gille\Documents\Project\Hackaton\Hackaton\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\gille\Documents\Project\Hackaton\Hackaton\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
