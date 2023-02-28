@@ -5,12 +5,12 @@
     "version": "1.0"
   },
   "paths": {
-    "/WeatherForecast": {
+    "/api/VivesHackathon": {
       "get": {
         "tags": [
-          "WeatherForecast"
+          "VivesHackathon"
         ],
-        "operationId": "GetWeatherForecast",
+        "operationId": "getStudent",
         "produces": [
           "text/plain",
           "application/json",
@@ -20,35 +20,9 @@
           "200": {
             "description": "Success",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/WeatherForecast"
-              }
+              "type": "string"
             }
           }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "WeatherForecast": {
-      "type": "object",
-      "properties": {
-        "date": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "temperatureC": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "temperatureF": {
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
-        },
-        "summary": {
-          "type": "string"
         }
       }
     }
