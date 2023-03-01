@@ -28,13 +28,11 @@ namespace Hackaton.Controllers
         public ActionResult<IEnumerable<StudentItem>> GetStudents()
         {
             List<StudentItem> students = new List<StudentItem>();
-            students.Add(new StudentItem() { naam = "gilles", klas = "2net" });
+            students.Add(new StudentItem() { naam = "Gilles Covens", klas = "2NET" });
             return students;
-
-            Response.Headers.Add("mijnserver", "MyServer");
-
         }
 
+        [EnableCors("*")]
         [HttpPost(Name = "addStudent")]
         public async Task<IActionResult> PostNFCData([FromBody] StudentItem studentItem)
         {
