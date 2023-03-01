@@ -19,7 +19,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseCors("CorsApi");
 app.MapControllers();
 
 app.Run();

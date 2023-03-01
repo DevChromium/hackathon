@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Cors;
 
 namespace Hackaton.Controllers
 {
@@ -23,16 +24,18 @@ namespace Hackaton.Controllers
         {
             httpClient = new HttpClient();
         }
-
+        [EnableCors("*")]
         [HttpGet(Name = "getStudent")]
+
         public ActionResult<IEnumerable<StudentItem>> GetStudents()
         {
+            
             List<StudentItem> students = new List<StudentItem>();
             students.Add(new StudentItem() { naam = "Gilles Covens", klas = "2NET" });
             return students;
         }
 
-        [EnableCors("*")]
+        
         [HttpPost(Name = "addStudent")]
         public async Task<IActionResult> PostNFCData([FromBody] StudentItem studentItem)
         {
@@ -47,7 +50,7 @@ namespace Hackaton.Controllers
                 using (var httpClient = new HttpClient())
                 {
                     var response = await httpClient.PostAsync("https://hackaton2023.azurewebsites.net/api/VivesHackathon", content);
-
+                    
                     if (response.IsSuccessStatusCode)
                     {
                         return Ok();
