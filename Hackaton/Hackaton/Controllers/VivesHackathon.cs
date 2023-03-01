@@ -25,7 +25,7 @@ namespace Hackaton.Controllers
             httpClient = new HttpClient();
         }
         [EnableCors("*")]
-        [HttpGet(Name = "getStudent")]
+        [HttpGet(Name = "getStudent"), Route("get")]
 
         public ActionResult<IEnumerable<StudentItem>> GetStudents()
         {
@@ -36,7 +36,7 @@ namespace Hackaton.Controllers
         }
 
         
-        [HttpPost(Name = "addStudent")]
+        [HttpPost(Name = "addStudent"), Route("add")]
         public async Task<IActionResult> PostNFCData([FromBody] StudentItem studentItem)
         {
             try
