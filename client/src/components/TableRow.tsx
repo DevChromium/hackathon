@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export const TableRow = () => {
+export const TableRow = ({ data , ...props}: any) => {
     return (
             <tr className="hover:bg-gray-50">
             <th className="flex items-center gap-3 px-6 py-4 font-normal text-gray-900">
@@ -15,7 +15,7 @@ export const TableRow = () => {
         
             </div>
             <div className="text-sm">
-                <div className="font-medium text-gray-700">Steven Jobs</div>
+                <div className="font-medium text-gray-700">{data.naam}</div>
             </div>
             </th>
             <td className="px-6 py-4">
@@ -26,7 +26,7 @@ export const TableRow = () => {
                 Aanwezig
             </span>
             </td>
-            <td className="px-6 py-4">2SD</td>
+            <td className="px-6 py-4">{data.klas}</td>
         </tr>
     )
 }

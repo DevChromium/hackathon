@@ -6,27 +6,20 @@ import { Button } from "../../components/Button"
 import { TableRow } from "../../components/TableRow"
 import axios from "axios"
 
+export async function getServerSideProps() {
+    const response = await axios.get('http://localhost:1337/api/getStudents');
+    const data = response.data;
+  
+    return { props: { data } };
+  }
 
-const Dashboard: NextPage =  () => {
+const Dashboard: NextPage =  ({data}: any) => {
 
-    const [students, setStudents] = useState<any[]>([])
+    const [students, setStudents] = useState<any[]>([{ naam: "Steven Goegebeur", klas: "2SD"}])
 
     useEffect(() => {
-        axios.get("https://hackaton2023.azurewebsites.net/api/VivesHackathon", 
-            { 
-                headers: 
-                { 
-                    'Referrer-Policy': 'same-origin',
-                    'Cookie': 'ARRAffinitySameSite=4977bd47cc6d374c4a1606c214bdac51876943804d3996e050f173ee361b1d63; ARRAffinity=4977bd47cc6d374c4a1606c214bdac51876943804d3996e050f173ee361b1d63',
-                    'Accept': '*/*'
-                }
-            })
-            .then((response) => {
-                setStudents(response.data)
-            })
-            .catch(err => console.log(err))
+        setStudents(data)
     }, [])
-
 
     return (
         <div className="h-[100vh] flex">
@@ -44,7 +37,7 @@ const Dashboard: NextPage =  () => {
                         <Button text="Log out" />
                     </div>
             </section>
-            <section className="w-full rounded-[35px] bg-neutral-100">
+            <section className="w-full h-fullg! rounded-[35px] bg-neutral-100">
                 <div className="container py-12 mx-auto">
                     <div className="p-8 mx-8 bg-white rounded-lg">
                         <h2 className="mb-1 text-3xl font-bold tracking-wide text-gray-700">Aanwezige studenten</h2>
@@ -63,7 +56,7 @@ const Dashboard: NextPage =  () => {
                                         </tr>
                                         </thead>
                                         <tbody className="border-t border-gray-100 divide-y divide-gray-100">
-                                            {students.map(student => ( <TableRow key={student} /> ))} 
+                                            {students.map(student => ( <TableRow key={student} data={student} /> ))} 
                                         </tbody>
                                     </table>
                                     </div>

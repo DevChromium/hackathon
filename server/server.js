@@ -3,7 +3,7 @@ import cors from "cors"
 import bodyparser from "body-parser"
 
 const app = express();
-const students = []
+const students = new Set();
 
 // Enable CORS middleware
 app.use(cors());
@@ -15,13 +15,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/getStudents', (req, res) => {
-    res.send(JSON.stringify(students));
+    let temp = [...students]
+    console.log(temp)
+    res.send(JSON.stringify(temp));
 })
 
 app.post('/api/postStudent', (req, res) => {
     let body = req.body;
-    students.push(body)
-    console.log(body)
+    students.add(body);
+    console.log(students)
     res.send("Data received")
 })
 
